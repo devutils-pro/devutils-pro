@@ -1,141 +1,97 @@
-# 📚 Examples — organize.py & DevUtils Pro
+# 📚 EXAMPLES.md — Real-World Use Cases
 
----
-
-## 🆓 organize.py (FREE — included here)
+## 🗂️ organize (free — in this repo)
 
 ### 1. Analyze your Downloads folder
 ```bash
 python organize.py ~/Downloads --analyze
 ```
-Output: file count, total size, breakdown by category, top extensions.
+Shows: 1,247 files, 3.2 GB, grouped by type with sizes.
 
-### 2. Preview before executing
+### 2. Organize by file type
 ```bash
-python organize.py ~/Desktop --by type
+python organize.py ~/Desktop --by type --execute
 ```
-Shows exactly what will move where. No changes made. Safe!
+Result: Files sorted into Documents, Images, Code, Archives, Audio...
 
-### 3. Organize by type (execute)
-```bash
-python organize.py ~/Downloads --by type --execute
-```
-📄 Documents, 🖼️ Images, 💻 Code, 📦 Archives... all sorted.
-
-### 4. Organize photos by month
+### 3. Organize photos by date
 ```bash
 python organize.py ~/Pictures --by date --date-format "%Y/%m" --execute
 ```
-Creates `2025/01/`, `2025/02/`, etc. subfolders.
+Result: `/Pictures/2025/01/`, `/Pictures/2025/02/`, etc.
 
-### 5. Find disk hogs by size
+### 4. Find large files to delete
 ```bash
-python organize.py ~/Documents --by size --analyze
+python organize.py ~/Desktop --by size --analyze
 ```
-Groups files into "Small", "Medium", "Large", "Huge" — spot what to delete.
+See which files are 10MB+ before deciding to delete them.
 
 ---
 
-## 🔒 csvkit (Pro — available in full pack)
+## 📊 csvkit (premium — in the $7 pack)
 
-### 6. Quick stats on a CSV
+### 5. Quick stats on a large CSV
 ```bash
-python csvkit.py sales.csv --stats
+python csvkit.py sales_2025.csv --stats
 ```
-Rows, columns, ranges, averages, null counts — in one command.
 
-### 7. Clean CSV for database import
+### 6. Clean CSV for database import
 ```bash
-python csvkit.py dirty.csv --clean clean.csv
+python csvkit.py dirty_data.csv --clean clean_data.csv
 ```
-Removes rows with null values. Output is database-ready.
 
-### 8. Convert CSV to JSON
+### 7. Convert CSV to JSON
 ```bash
 python csvkit.py users.csv --to-json users.json
 ```
-Valid JSON array, ready for any API.
 
-### 9. Filter rows
+### 8. Filter rows by condition
 ```bash
 python csvkit.py inventory.csv --filter "quantity<10"
 ```
-Only items that need restocking.
 
 ---
 
-## 🔒 jsonkit (Pro — available in full pack)
+## 🔍 jsonkit (premium — in the $7 pack)
 
-### 10. Pretty-print ugly JSON
+### 9. Pretty-print any JSON
 ```bash
-python jsonkit.py minified.json
+python jsonkit.py api-response.json
 ```
-Readable, indented, with colors.
 
-### 11. Validate JSON config
+### 10. Validate JSON before deploy
 ```bash
 python jsonkit.py config.json --validate
 ```
-Instant syntax check before deploying.
-
-### 12. Extract nested values (like jq)
-```bash
-python jsonkit.py response.json --query "data.users.0.email"
-```
-No need to install jq. Dot-notation queries work.
 
 ---
 
-## 🔒 logscan (Pro — available in full pack)
+## 📜 logscan (premium — in the $7 pack)
 
-### 13. Health check on logs
+### 11. Health check on production logs
 ```bash
 python logscan.py /var/log/nginx/access.log
 ```
-Error rate, status codes, top IPs — one command.
 
-### 14. Find specific errors
+### 12. Find specific errors
 ```bash
 python logscan.py app.log --errors --pattern "database"
 ```
-Only database-related errors with context lines.
-
-### 15. Top IP analysis
-```bash
-python logscan.py access.log --top-ips
-```
-Spot abuse or traffic patterns instantly.
 
 ---
 
-## 🔒 renamer (Pro — available in full pack)
+## ✏️ renamer (premium — in the $7 pack)
 
-### 16. Add prefix to photos
+### 13. Batch rename vacation photos
 ```bash
-python renamer.py *.jpg --prefix "italy_" --execute
+python renamer.py *.jpg --prefix "italy_2025_" --execute
 ```
-IMG_0001.jpg → italy_IMG_0001.jpg
 
-### 17. Regex replace
+### 14. Rename with regex
 ```bash
 python renamer.py *.txt --regex "draft_(v\d+)" --replace "final_\1" --execute
 ```
-draft_v3.txt → final_v3.txt
-
-### 18. Sequential numbering
-```bash
-python renamer.py *.pdf --number "report" --padding 4 --execute
-```
-random.pdf → report_0001.pdf
 
 ---
 
-## 🛒 Get the Full Pack
-
-👉 **[Buy DevUtils Pro on Gumroad — $7](https://tiernocity.gumroad.com/l/pstka)**
-
-All 5 tools. Full source code. One price. Forever.
-
----
-
-**organize.py is free and MIT licensed. The other 4 tools are available in the Pro pack.**
+**Want all tools? [Get the pack on Gumroad — $7](https://tiernocity.gumroad.com/l/pstka)**
