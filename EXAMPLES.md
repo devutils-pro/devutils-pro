@@ -1,145 +1,141 @@
-# 📚 EXAMPLES.md — 20 Real-World Use Cases
+# 📚 Examples — organize.py & DevUtils Pro
 
 ---
 
-## 🗂️ organize — Smart File Organizer
+## 🆓 organize.py (FREE — included here)
 
-### 1. Clean your Downloads folder
+### 1. Analyze your Downloads folder
+```bash
+python organize.py ~/Downloads --analyze
+```
+Output: file count, total size, breakdown by category, top extensions.
+
+### 2. Preview before executing
+```bash
+python organize.py ~/Desktop --by type
+```
+Shows exactly what will move where. No changes made. Safe!
+
+### 3. Organize by type (execute)
 ```bash
 python organize.py ~/Downloads --by type --execute
-# Result: 1,247 files sorted into Documents, Images, Code, Archives...
 ```
+📄 Documents, 🖼️ Images, 💻 Code, 📦 Archives... all sorted.
 
-### 2. Organize by date (great for photos)
+### 4. Organize photos by month
 ```bash
 python organize.py ~/Pictures --by date --date-format "%Y/%m" --execute
-# Result: /Pictures/2025/01/, /Pictures/2025/02/, ...
 ```
+Creates `2025/01/`, `2025/02/`, etc. subfolders.
 
-### 3. Group large files for cleanup
+### 5. Find disk hogs by size
 ```bash
-python organize.py ~/Desktop --by size --analyze
-# Result: See which files are 10MB+, decide what to delete
+python organize.py ~/Documents --by size --analyze
 ```
-
-### 4. Preview before executing (always!)
-```bash
-python organize.py ~/Documents --by type
-# Result: Shows exactly what will move where, no changes made
-```
+Groups files into "Small", "Medium", "Large", "Huge" — spot what to delete.
 
 ---
 
-## 📊 csvkit — CSV Toolkit
+## 🔒 csvkit (Pro — available in full pack)
 
-### 5. Quick stats on a large dataset
+### 6. Quick stats on a CSV
 ```bash
-python csvkit.py sales_2025.csv --stats
-# Result: Row count, column ranges, averages, null counts in 2 seconds
+python csvkit.py sales.csv --stats
 ```
+Rows, columns, ranges, averages, null counts — in one command.
 
-### 6. Clean CSV for import into database
+### 7. Clean CSV for database import
 ```bash
-python csvkit.py dirty_data.csv --clean clean_data.csv
-# Result: All rows with nulls removed, ready for PostgreSQL
+python csvkit.py dirty.csv --clean clean.csv
 ```
+Removes rows with null values. Output is database-ready.
 
-### 7. Convert CSV to JSON for API
+### 8. Convert CSV to JSON
 ```bash
 python csvkit.py users.csv --to-json users.json
-# Result: Valid JSON array ready to send to an API
 ```
+Valid JSON array, ready for any API.
 
-### 8. Filter rows by condition
+### 9. Filter rows
 ```bash
 python csvkit.py inventory.csv --filter "quantity<10"
-# Result: Only items that need restocking
 ```
+Only items that need restocking.
 
 ---
 
-## 🔍 jsonkit — JSON Toolkit
+## 🔒 jsonkit (Pro — available in full pack)
 
-### 9. Pretty-print ugly minified JSON
+### 10. Pretty-print ugly JSON
 ```bash
-python jsonkit.py api-response.json
-# Result: Beautifully formatted JSON you can actually read
+python jsonkit.py minified.json
 ```
+Readable, indented, with colors.
 
-### 10. Validate JSON before deploying config
+### 11. Validate JSON config
 ```bash
 python jsonkit.py config.json --validate
-# Result: ✅ Valid JSON! or ❌ Invalid JSON: line 42, missing comma
 ```
+Instant syntax check before deploying.
 
-### 11. Extract nested values without jq
+### 12. Extract nested values (like jq)
 ```bash
-python jsonkit.py response.json --query "data.users.0.profile.email"
-# Result: "john@example.com"
+python jsonkit.py response.json --query "data.users.0.email"
 ```
-
-### 12. Explore unknown JSON structure
-```bash
-python jsonkit.py mystery.json --keys
-# Result: All 47 nested keys listed, know what you're working with
-```
+No need to install jq. Dot-notation queries work.
 
 ---
 
-## 📜 logscan — Log Scanner
+## 🔒 logscan (Pro — available in full pack)
 
-### 13. Health check on production logs
+### 13. Health check on logs
 ```bash
 python logscan.py /var/log/nginx/access.log
-# Result: Error rate, top IPs, status code breakdown in 1 command
 ```
+Error rate, status codes, top IPs — one command.
 
-### 14. Find specific errors fast
+### 14. Find specific errors
 ```bash
 python logscan.py app.log --errors --pattern "database"
-# Result: Only database-related errors with context
 ```
+Only database-related errors with context lines.
 
-### 15. Analyze who's hitting your server
+### 15. Top IP analysis
 ```bash
 python logscan.py access.log --top-ips
-# Result: Top 10 IPs by request count → spot abuse
 ```
-
-### 16. Check HTTP status distribution
-```bash
-python logscan.py access.log --summary
-# Result: Green 200s, yellow 404s, red 500s — instant overview
-```
+Spot abuse or traffic patterns instantly.
 
 ---
 
-## ✏️ renamer — Batch File Renamer
+## 🔒 renamer (Pro — available in full pack)
 
-### 17. Add prefix to vacation photos
+### 16. Add prefix to photos
 ```bash
-python renamer.py *.jpg --prefix "italy_2025_" --execute
-# Result: IMG_0001.jpg → italy_2025_IMG_0001.jpg
+python renamer.py *.jpg --prefix "italy_" --execute
 ```
+IMG_0001.jpg → italy_IMG_0001.jpg
 
-### 18. Rename draft files to final versions
+### 17. Regex replace
 ```bash
 python renamer.py *.txt --regex "draft_(v\d+)" --replace "final_\1" --execute
-# Result: draft_v3.txt → final_v3.txt
 ```
+draft_v3.txt → final_v3.txt
 
-### 19. Number exported files sequentially
+### 18. Sequential numbering
 ```bash
 python renamer.py *.pdf --number "report" --padding 4 --execute
-# Result: random.pdf → report_0001.pdf, another.pdf → report_0002.pdf
 ```
-
-### 20. Strip annoying prefixes from downloads
-```bash
-python renamer.py *.mp4 --remove "downloaded_from_site_" --execute
-# Result: downloaded_from_site_video.mp4 → video.mp4
-```
+random.pdf → report_0001.pdf
 
 ---
 
-**All examples tested on Python 3.8+, Linux/Mac/Windows.**
+## 🛒 Get the Full Pack
+
+👉 **[Buy DevUtils Pro on Gumroad — $7](https://tiernocity.gumroad.com/l/pstka)**
+
+All 5 tools. Full source code. One price. Forever.
+
+---
+
+**organize.py is free and MIT licensed. The other 4 tools are available in the Pro pack.**
